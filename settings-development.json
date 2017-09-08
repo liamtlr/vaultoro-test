@@ -1,5 +1,7 @@
 {
-  "public": {},
+  "public": {
+    "GIPHY_API_KEY": "c1de4ee0ccac42e281b4a163a20b216a"
+  },
   "private": {
     "MAIL_URL": "",
     "OAuth": {

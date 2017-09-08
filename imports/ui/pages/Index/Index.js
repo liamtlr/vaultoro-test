@@ -1,10 +1,13 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { HTTP } from 'meteor/http'
+import RandomGif from '../../components/RandomGif/RandomGif';
 
 import './Index.scss';
 
 const Index = () => (
   <div className="Index">
+    <RandomGif />
     <img
       src="https://s3-us-west-2.amazonaws.com/cleverbeagle-assets/graphics/email-icon.png"
       alt="Clever Beagle"
