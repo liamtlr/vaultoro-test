@@ -18,13 +18,19 @@ class DocumentEditor extends React.Component {
         body: {
           required: true,
         },
+        rating: {
+          required: true,
+        },
       },
       messages: {
         title: {
           required: 'Need a title in here, Seuss.',
         },
-        body: {
+        url: {
           required: 'This thneeds a body, please.',
+        },
+        rating: {
+          required: 'Rate this mutha.',
         },
       },
       submitHandler() { component.handleSubmit(); },
@@ -37,7 +43,8 @@ class DocumentEditor extends React.Component {
     const methodToCall = existingDocument ? 'documents.update' : 'documents.insert';
     const doc = {
       title: this.title.value.trim(),
-      body: this.body.value.trim(),
+      url: this.url.value.trim(),
+      rating: this.rating.value,
     };
 
     if (existingDocument) doc._id = existingDocument;
@@ -69,14 +76,27 @@ class DocumentEditor extends React.Component {
         />
       </FormGroup>
       <FormGroup>
-        <ControlLabel>Body</ControlLabel>
+        <ControlLabel>URL</ControlLabel>
         <textarea
           className="form-control"
-          name="body"
-          ref={body => (this.body = body)}
-          defaultValue={doc && doc.body}
+          name="url"
+          ref={url => (this.url = url)}
+          defaultValue={doc && doc.url}
           placeholder="Congratulations! Today is your day. You're off to Great Places! You're off and away!"
         />
+      </FormGroup>
+      <FormGroup>
+       <ControlLabel>Rating</ControlLabel>
+       <input
+        type="number"
+        className="form-control"
+        min="1"
+        max="5"
+        name="rating"
+        ref={rating => (this.rating = rating)}
+        defaultValue={doc && doc.rating}
+        placeholder="<3 GIFs"
+       />
       </FormGroup>
       <Button type="submit" bsStyle="success">
         {doc && doc._id ? 'Save Changes' : 'Add GIF'}

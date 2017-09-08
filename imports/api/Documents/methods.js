@@ -7,7 +7,8 @@ Meteor.methods({
   'documents.insert': function documentsInsert(doc) {
     check(doc, {
       title: String,
-      body: String,
+      url: String,
+      rating: String,
     });
 
     try {
@@ -20,7 +21,8 @@ Meteor.methods({
     check(doc, {
       _id: String,
       title: String,
-      body: String,
+      url: String,
+      rating: String,
     });
 
     try {

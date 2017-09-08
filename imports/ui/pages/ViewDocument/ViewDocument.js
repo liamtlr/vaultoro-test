@@ -7,6 +7,7 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import Documents from '../../../api/Documents/Documents';
 import NotFound from '../NotFound/NotFound';
 import Loading from '../../components/Loading/Loading';
+import { getStarRating } from '../../../modules/helpers.js'
 
 const handleRemove = (documentId, history) => {
   if (confirm('Are you sure? This is permanent!')) {
@@ -34,7 +35,8 @@ const renderDocument = (doc, match, history) => (doc ? (
         </ButtonGroup>
       </ButtonToolbar>
     </div>
-    <img src={doc.body}></img>
+    <img src={doc.url}></img>
+    <h4> Rating: {getStarRating(doc.rating)} </h4>
   </div>
 ) : <NotFound />);
 

@@ -15,8 +15,7 @@ class RandomGif extends React.Component {
 
   componentDidMount() {
     let output;
-    const apiKey =  Meteor.settings.public.GIPHY_API_KEY
-    const apiUrl = "https://api.giphy.com/v1/gifs/random?api_key=" + apiKey + "&tag=&rating=R"
+    const apiUrl = "https://api.giphy.com/v1/gifs/random?api_key=c1de4ee0ccac42e281b4a163a20b216a&tag=&rating=R"
     const result = HTTP.call('GET', apiUrl, function(error, response){
       output = response.data.data.fixed_height_small_url
       this.setState({gifUrl: output})

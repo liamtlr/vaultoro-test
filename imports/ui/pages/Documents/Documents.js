@@ -8,6 +8,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Bert } from 'meteor/themeteorchef:bert';
 import DocumentsCollection from '../../../api/Documents/Documents';
 import Loading from '../../components/Loading/Loading';
+import { getStarRating } from '../../../modules/helpers.js'
 
 import './Documents.scss';
 
@@ -36,17 +37,19 @@ const Documents = ({ loading, documents, match, history }) => (!loading ? (
           <th>Last Updated</th>
           <th>Created</th>
           <th>GIF</th>
+          <th>Rating</th>
           <th />
           <th />
         </tr>
       </thead>
       <tbody>
-        {documents.map(({ _id, title, body,createdAt, updatedAt }) => (
+        {documents.map(({ _id, title, url, rating, createdAt, updatedAt }) => (
           <tr key={_id}>
             <td>{title}</td>
             <td>{timeago(updatedAt)}</td>
             <td>{monthDayYearAtTime(createdAt)}</td>
-            <td><img src={body}/></td>
+            <td><img src={url}/></td>
+            <td>{getStarRating(rating)}</td>
             <td>
               <Button
                 bsStyle="primary"

@@ -40,7 +40,11 @@ Documents.schema = new SimpleSchema({
     type: String,
     label: 'The title of the document.',
   },
-  body: {
+  url: {
+    type: String,
+    label: 'The body of the document.',
+  },
+  rating: {
     type: String,
     label: 'The body of the document.',
   },
