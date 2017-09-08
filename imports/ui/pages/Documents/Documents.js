@@ -17,7 +17,7 @@ const handleRemove = (documentId) => {
       if (error) {
         Bert.alert(error.reason, 'danger');
       } else {
-        Bert.alert('Document deleted!', 'success');
+        Bert.alert('GIF deleted!', 'success');
       }
     });
   }
@@ -26,8 +26,8 @@ const handleRemove = (documentId) => {
 const Documents = ({ loading, documents, match, history }) => (!loading ? (
   <div className="Documents">
     <div className="page-header clearfix">
-      <h4 className="pull-left">Documents</h4>
-      <Link className="btn btn-success pull-right" to={`${match.url}/new`}>Add Document</Link>
+      <h4 className="pull-left">GIFs</h4>
+      <Link className="btn btn-success pull-right" to={`${match.url}/new`}>Add GIF</Link>
     </div>
     {documents.length ? <Table responsive>
       <thead>
@@ -35,16 +35,18 @@ const Documents = ({ loading, documents, match, history }) => (!loading ? (
           <th>Title</th>
           <th>Last Updated</th>
           <th>Created</th>
+          <th>GIF</th>
           <th />
           <th />
         </tr>
       </thead>
       <tbody>
-        {documents.map(({ _id, title, createdAt, updatedAt }) => (
+        {documents.map(({ _id, title, body,createdAt, updatedAt }) => (
           <tr key={_id}>
             <td>{title}</td>
             <td>{timeago(updatedAt)}</td>
             <td>{monthDayYearAtTime(createdAt)}</td>
+            <td><img src={body}/></td>
             <td>
               <Button
                 bsStyle="primary"
