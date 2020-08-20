@@ -9,7 +9,7 @@
     "@cleverbeagle/dates": "^0.5.1",
     "@cleverbeagle/seeder": "^1.2.0",
     "babel-runtime": "^6.26.0",
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^5.0.0",
     "commonmark": "^0.28.1",
     "core-js": "^2.5.1",
     "fs": "0.0.1-security",
